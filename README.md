@@ -1,93 +1,92 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/zHsKfIy0)
-# Title (Please modify the title)
+# Dialogue Summarization | 일상 대화 요약
+
 ## Team
 
-| ![박패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![이패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![최패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김패캠](https://avatars.githubusercontent.com/u/156163982?v=4) | ![오패캠](https://avatars.githubusercontent.com/u/156163982?v=4) |
-| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [박패캠](https://github.com/UpstageAILab)             |            [이패캠](https://github.com/UpstageAILab)             |            [최패캠](https://github.com/UpstageAILab)             |            [김패캠](https://github.com/UpstageAILab)             |            [오패캠](https://github.com/UpstageAILab)             |
-|                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |
+| <img src="https://drive.google.com/uc?export=view&id=1LHSq2m119E8Vc590kM6PCwBF9quxjY4R" alt="정인웅" width="150" height="100"> | <img src="https://drive.google.com/uc?export=view&id=1Fg7LNgBWTcaBBXEaVLDwI73o6nklBApt" alt="이범희" width="150" height="100"> | <img src="https://drive.google.com/uc?export=view&id=1G2GLuzvsoSigbdlHFneNkNdUCnRss_Z3" alt="안수민" width="150" height="100"> | <img src="https://drive.google.com/uc?export=view&id=1rfLaDJocTPO2c0ctPnCOebACb39Uz3f2" alt="진수훈" width="150" height="100"> |
+| :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
+|            [정인웅](https://github.com/Messengerwoong)             |            [이범희](https://github.com/tmttd)             |            [안수민](https://github.com/soomnia)             |            [진수훈](https://github.com/huniii32)             |
+| - Data Processing <br> - Modeling | - Research <br> - Modeling | - Data Augementation <br> - Modeling  | - Data Processing, Augementation <br> - Modeling |
+
 
 ## 0. Overview
 ### Environment
-- _Write Development environment_
+- Ubuntu 20.04.6 LTS
+- GPU: RTX 3090 / 24 GB
+- Memory: 60G
 
-### Requirements
-- _Write Requirements_
 
 ## 1. Competiton Info
 
 ### Overview
+- [Dialogue Summarization | 일상 대화 요약](https://stages.ai/competitions/320/overview/description)
 
-- _Write competition information_
+학교 생활, 직장, 치료, 쇼핑, 여가, 여행 등 광범위한 일상 생활 중 하는 대화들에 대해 요약합니다.
+
+- `#비공개대회` `#UpstageAILab3기` `#NLPAdvanced`
 
 ### Timeline
-
-- ex) January 10, 2024 - Start Date
-- ex) February 10, 2024 - Final submission deadline
+- August 29, 2024 - Start Date
+- September 10, 2024 - Final submission deadline
 
 ## 2. Components
 
 ### Directory
-
-- _Insert your directory structure_
-
-e.g.
 ```
-├── code
-│   ├── jupyter_notebooks
-│   │   └── model_train.ipynb
-│   └── train.py
-├── docs
-│   ├── pdf
-│   │   └── (Template) [패스트캠퍼스] Upstage AI Lab 1기_그룹 스터디 .pptx
-│   └── paper
-└── input
-    └── data
-        ├── eval
-        └── train
+
 ```
 
 ## 3. Data descrption
 
 ### Dataset overview
 
-- _Explain using data_
+- fname <br>
+대화 고유번호
 
-### EDA
+- dialogue <br>
+최소 2명에서 최대 7명이 등장하여 나누는 대화 내용 <br> 각각의 발화자를 구분하기 위해 `#Person”N”#`: 을 사용하며, 발화자의 대화가 끝나면 `\n` 으로 구분
 
-- _Describe your EDA process and step-by-step conclusion_
+- summary : 해당 대화를 바탕으로 작성된 요약문
 
 ### Data Processing
+1. Data Cleaning 진행
+    1. 중복된 summary 및 잘못된 summary 삭제
+    2. 일부 잘못 설정된 special token 수정
 
-- _Describe data processing process (e.g. Data Labeling, Data Cleaning..)_
+2. Data Augmentation
+    1. LLM을 이용한 증강 시도
+    2. EDA를 통한 증강 시도
+    3. Back Translation을 통한 증강 시도
+
+
 
 ## 4. Modeling
 
 ### Model descrition
-
-- _Write model information and why your select this model_
+. gogamza-kobart-base-v1 <br>
+. ainize-kobart-news
 
 ### Modeling Process
 
-- _Write model train and test process with capture_
+- 데이터 전처리
+- 데이터 증강
+- 모델 선정 및 학습
 
 ## 5. Result
-
+Rouge-Score
 ### Leader Board
+> PUBLIC <br>
+![PUBLIC](/docs/img/leaderboard-public.PNG)
 
-- _Insert Leader Board Capture_
-- _Write rank and score_
+> PRIVATE <br>
+![PRIVATE](/docs/img/leaderboard-private.PNG)
 
+> BEST SCORE <br>
+![Best](/docs/img/best_score.PNG)
 ### Presentation
 
-- _Insert your presentaion file(pdf) link_
+- [💾 PDF](/docs/pdf/Upstage%20AI%20Lab%203기_NLP%20경진대회_발표자료_8조.pdf)
 
 ## etc
-
-### Meeting Log
-
-- _Insert your meeting log link like Notion or Google Docs_
-
 ### Reference
-
-- _Insert related reference_
+- [baseline code](https://stages.ai/competitions/320/data/baseline)
